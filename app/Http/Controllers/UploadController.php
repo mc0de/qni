@@ -8,6 +8,6 @@ class UploadController extends Controller
 {
     public function upload(Request $request)
     {
-        //
+        dd($request);
     }
 }
