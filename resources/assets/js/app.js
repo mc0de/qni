@@ -6,6 +6,10 @@
  */
 
 require('./bootstrap');
+require('./material.min');
+require('./nouislider.min');
+require('./material-kit');
+require('dropzone');
 
 window.Vue = require('vue');
 
