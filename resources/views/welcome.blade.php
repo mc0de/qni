@@ -7,7 +7,7 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="card card-upload">
                     <div class="header header-primary text-center">
-                        <h4>Drop image here to upload</h4>
+                        <h4 class="shorturl">Drop image here to upload</h4>
                     </div>
                     <div class="content">
                         {{ Form::open(['url' => route('upload'), 'id' => 'upload', 'files' => true, 'class' => 'dropzone']) }}
