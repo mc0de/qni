@@ -19,3 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/', 'UploadController@upload')->name('upload');
+Route::get('/{name}', 'UploadController@getMedia')->name('media');

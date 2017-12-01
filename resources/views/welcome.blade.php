@@ -12,9 +12,13 @@
                     <div class="content">
                         {{ Form::open(['url' => route('upload'), 'id' => 'upload', 'files' => true, 'class' => 'dropzone']) }}
                         <div class="dz-message">
-                            <p><i class="material-icons text-info" style="font-size: 76px;">cloud_upload</i></p>
+                            <p>
+                                <i class="material-icons text-info icon-cloud">cloud_upload</i>
+                            </p>
                             <p>Or, if you prefer...</p>
-                            <p><button type="button" class="btn btn-info btn-sm">Choose image to upload</button></p>
+                            <p>
+                                <button type="button" class="btn btn-info btn-md">Choose image to upload</button>
+                            </p>
                         </div>
                         {{ Form::close() }}
                     </div>
@@ -23,4 +27,11 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+    <script>
+        $(function(){
+        });
+    </script>
 @endsection

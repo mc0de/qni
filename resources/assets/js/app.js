@@ -9,9 +9,15 @@ require('./bootstrap');
 require('./material.min');
 require('./nouislider.min');
 require('./material-kit');
-require('dropzone');
 
 window.Vue = require('vue');
+window.Dropzone = require('dropzone');
+
+Dropzone.options.upload = {
+    init: function() {
+        this.on("success", function(file, response) { alert(response); });
+    }
+};
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
