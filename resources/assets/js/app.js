@@ -15,7 +15,9 @@ window.Dropzone = require('dropzone');
 
 Dropzone.options.upload = {
     init: function() {
-        this.on("success", function(file, response) { $('.shorturl').text(response); });
+        this.on("success", function(file, response) {
+            $('.shorturl').text(response.data.url);
+        });
     }
 };
 

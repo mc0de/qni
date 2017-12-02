@@ -10,7 +10,7 @@
                         <h4 class="shorturl">Drop image here to upload</h4>
                     </div>
                     <div class="content">
-                        {{ Form::open(['url' => route('upload'), 'id' => 'upload', 'files' => true, 'class' => 'dropzone']) }}
+                        {{ Form::open(['url' => route('api.media.store'), 'id' => 'upload', 'files' => true, 'class' => 'dropzone']) }}
                         <div class="dz-message">
                             <p>
                                 <i class="material-icons text-info icon-cloud">cloud_upload</i>
@@ -27,11 +27,4 @@
         </div>
     </div>
 </div>
-@endsection
-
-@section('scripts')
-    <script>
-        $(function(){
-        });
-    </script>
 @endsection
