@@ -10,18 +10,21 @@
     text-align: left;
 }
 
-.wrapper > .header {
-    background-image: url("../../img/lake.jpg");
-    background-size: cover;
-    height: 100vh;
+.index-page {
+    .wrapper > .header {
+        background-image: url("../../img/lake.jpg");
+    }
+    .header-filter:after{
+        background: rgba(0, 0, 0, 0.4);
+        background: linear-gradient(45deg,  rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%);
+        background: -moz-linear-gradient(135deg,  rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%);
+        background: -webkit-linear-gradient(135deg,  rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%);
+    }
 }
+
 
 .index-page .card-upload {
     margin-top: 20vh;
-}
-
-.header-filter {
-    position: relative;
 }
 
 .card-upload .header {

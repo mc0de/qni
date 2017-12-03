@@ -20,7 +20,8 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @yield('styles')
 </head>
-<body>
+
+<body @if (request()->is('/')) class="index-page" @endif>
     <div id="app">
         <div class="wrapper">
             <nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll">

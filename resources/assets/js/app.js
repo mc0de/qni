@@ -10,16 +10,10 @@ require('./material.min');
 require('./nouislider.min');
 require('./material-kit');
 
-window.Vue = require('vue');
+// window.Vue = require('vue');
 window.Dropzone = require('dropzone');
 
-Dropzone.options.upload = {
-    init: function() {
-        this.on("success", function(file, response) {
-            $('.shorturl').text(response.data.url);
-        });
-    }
-};
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -27,8 +21,8 @@ Dropzone.options.upload = {
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+// Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
-const app = new Vue({
-    el: '#app'
-});
+// const app = new Vue({
+//     el: '#app'
+// });

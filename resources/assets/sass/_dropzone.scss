@@ -1,0 +1,82 @@
+#template {
+    display: none;
+}
+
+.dropzone, .dropzone * {
+    box-sizing: border-box;
+}
+
+.dropzone {
+    min-height: 300px;
+    border: 2px dashed rgba(0, 0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropzone .upload-icon {
+    font-size: 76px;
+}
+
+.dropzone.dz-clickable {
+    cursor: pointer;
+}
+
+.dropzone.dz-clickable * {
+    cursor: default;
+}
+
+.dropzone.dz-clickable .dz-message, .dropzone.dz-clickable .dz-message * {
+    cursor: pointer;
+}
+
+.index-page.dz-drag-hover {
+    .dropzone {
+        border: 2px dashed rgba(0, 0, 0, 0.4);
+    }
+    .dz-message {
+        opacity: 0.5;
+    }
+}
+
+.dropzone .dz-message {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 2em 0;
+}
+
+.filezone .dz-preview {
+    overflow: hidden;
+
+    .dz-details {
+        display: flex;
+        align-items: center;
+        margin-left: 80px;
+        height: 80px;
+        box-sizing: border-box;
+        padding: 16px;
+
+        .dz-details-items {
+            width: 100%;
+
+            .dz-filename {
+                font-weight: 700;
+            }
+        }
+    }
+
+    .dz-progress {
+        margin-bottom: 0px;
+    }
+
+    .dz-success-mark, .dz-error-mark {
+        display: none;
+    }
+
+    .dz-image {
+        float: left;
+    }
+}
+
+
