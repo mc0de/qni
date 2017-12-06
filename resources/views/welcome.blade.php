@@ -27,31 +27,38 @@
                         {{ Form::close() }}
 
                         <div id="previews" class="filezone">
-                            <div id="template" class="dz-preview">
-                                <div class="dz-image">
-                                    <img data-dz-thumbnail>
+                            <div id="template">
+                                <div class="form-group dz-link">
+                                    <div class="row">
+                                        <div class="col-md-6 col-md-offset-3">
+                                            <input id='link' type="text" class="form-control" spellcheck="false">
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-info btn-link btn-select-link">Select Link</button>
                                 </div>
-                                <div class="dz-details">
-                                    <div class="dz-details-items">
-                                        <div class="dz-filename" data-dz-name></div>
-                                        <div class="dz-size" data-dz-size></div>
-                                        <div class="progress progress-line-success dz-progress">
-                                            <div class="progress-bar progress-bar-success dz-upload" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" data-dz-uploadprogress>
-                                            <span class="sr-only"></span>
+                                <div class="dz-preview">
+                                    <div class="dz-image">
+                                        <img data-dz-thumbnail>
+                                    </div>
+                                    <div class="dz-details">
+                                        <div class="dz-details-items">
+                                            <div class="dz-filename" data-dz-name></div>
+                                            <div class="dz-size" data-dz-size></div>
+                                            <div class="progress progress-line-success dz-progress">
+                                                <div class="progress-bar progress-bar-success dz-upload" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" data-dz-uploadprogress>
+                                                <span class="sr-only"></span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="dz-success-mark"><span>✔</span></div>
-                                <div class="dz-error-mark"><span>✘</span></div>
-                                <div class="dz-error-message"><span data-dz-errormessage></span></div>
+                                    <div class="dz-success-mark"><span>✔</span></div>
+                                    <div class="dz-error-mark"><span>✘</span></div>
+                                    <div class="dz-error-message"><span data-dz-errormessage></span></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
             </div>
         </div>
@@ -70,7 +77,12 @@
         var qniDropzone = new Dropzone(document.body, {
             init: function() {
                 this.on("success", function(file, response) {
-                    $('.shorturl').text(response.data.url);
+                    $('#link').val(response.data.link);
+                    $('.btn-select-link').ripples();
+                    $('.btn-select-link').click(function(){
+                        $('#link').select();
+                    });
+                    $('.dz-link').slideDown();
                 });
 
                 this.on("addedfile", function(file){
