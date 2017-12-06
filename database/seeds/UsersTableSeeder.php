@@ -35,11 +35,12 @@ class UsersTableSeeder extends Seeder
         ];
         DB::table('users')->insert($users);
 
-        User::findOrFail(1)->update([
+        $admin = User::findOrFail(1);
+        $admin->update([
             'access_token' => $admin->createToken('dropzone')->accessToken
         ]);
         anonymous()->update([
-            'access_token' => $anonymous->createToken('dropzone')->accessToken
+            'access_token' => anonymous()->createToken('dropzone')->accessToken
         ]);
     }
 }
