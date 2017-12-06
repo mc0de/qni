@@ -38,7 +38,7 @@ class UsersTableSeeder extends Seeder
         User::findOrFail(1)->update([
             'access_token' => $admin->createToken('dropzone')->accessToken
         ]);
-        User::findOrFail(1000)->update([
+        anonymous()->update([
             'access_token' => $anonymous->createToken('dropzone')->accessToken
         ]);
     }
