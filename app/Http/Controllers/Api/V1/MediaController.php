@@ -11,8 +11,7 @@ class MediaController extends Controller
 {
     public function store(MediaStoreRequest $request)
     {
-        $user = User::withTrashed()->findOrFail(2);
-        $image = $user->addMediaFromRequest('file')
+        $image = auth('api')->user()->addMediaFromRequest('file')
             ->setName(str_random(11))
             ->toMediaCollection('anonymous');
 

@@ -84,6 +84,10 @@
             previewsContainer: "#previews",
             previewTemplate: previewTemplate,
             maxFiles: 1,
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': @if (!auth()->check()) 'Bearer {{ anonymous()->access_token }}' @else 'Bearer {{ auth()->user()->access_token }}' @endif
+            }
         });
     </script>
 @endsection

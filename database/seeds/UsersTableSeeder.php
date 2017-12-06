@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
+use App\User;
 
 class UsersTableSeeder extends Seeder
 {
@@ -20,18 +21,25 @@ class UsersTableSeeder extends Seeder
                 'password' => bcrypt('secret'),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-                'deleted_at' => null,
+                'enabled' => true,
             ],
             [
-                'id' => 2,
+                'id' => 1000,
                 'name' => 'anonymous',
                 'email' => '',
                 'password' => '',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-                'deleted_at' => Carbon::now(),
+                'enabled' => false,
             ]
         ];
         DB::table('users')->insert($users);
+
+        User::findOrFail(1)->update([
+            'access_token' => $admin->createToken('dropzone')->accessToken
+        ]);
+        User::findOrFail(1000)->update([
+            'access_token' => $anonymous->createToken('dropzone')->accessToken
+        ]);
     }
 }
