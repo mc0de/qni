@@ -9,7 +9,8 @@ class MediaResource extends Resource
     /**
      * Transform the resource into an array.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return array
      */
     public function toArray($request)
@@ -17,15 +18,15 @@ class MediaResource extends Resource
         return [
             'file_name' => $this->file_name,
             'mime_type' => $this->mime_type,
-            'size' => $this->size,
-            'link' => $this->getUrl(),
+            'size'      => $this->size,
+            'link'      => $this->getUrl(),
         ];
     }
 
     public function with($request)
     {
         return [
-            'version' => '1.0.0'
+            'version' => '1.0.0',
         ];
     }
 }

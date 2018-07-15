@@ -11,22 +11,22 @@ class QniUrlGenerator extends BaseUrlGenerator
     /**
      * Get the url for the profile of a media item.
      *
-     * @return string
-     *
      * @throws \Spatie\MediaLibrary\Exceptions\UrlCannotBeDetermined
+     *
+     * @return string
      */
     public function getUrl(): string
     {
-        return config('app.url') . '/' . $this->media->name;
+        return config('app.url').'/'.$this->media->name;
     }
 
     /**
      * @param \DateTimeInterface $expiration
      * @param array              $options
      *
-     * @return string
-     *
      * @throws \Spatie\MediaLibrary\Exceptions\UrlCannotBeDetermined
+     *
+     * @return string
      */
     public function getTemporaryUrl(DateTimeInterface $expiration, array $options = []): string
     {
@@ -47,7 +47,7 @@ class QniUrlGenerator extends BaseUrlGenerator
             return str_replace(url('/'), '', $diskUrl);
         }
 
-        if (! starts_with($this->getStoragePath(), public_path())) {
+        if (!starts_with($this->getStoragePath(), public_path())) {
             throw UrlCannotBeDetermined::mediaNotPubliclyAvailable($this->getStoragePath(), public_path());
         }
 

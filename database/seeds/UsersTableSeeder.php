@@ -1,8 +1,8 @@
 <?php
 
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
-use App\User;
 
 class UsersTableSeeder extends Seeder
 {
@@ -15,32 +15,32 @@ class UsersTableSeeder extends Seeder
     {
         $users = [
             [
-                'id' => 1,
-                'name' => 'admin',
-                'email' => 'admin@admin.com',
-                'password' => bcrypt('secret'),
+                'id'         => 1,
+                'name'       => 'admin',
+                'email'      => 'admin@admin.com',
+                'password'   => bcrypt('secret'),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-                'enabled' => true,
+                'enabled'    => true,
             ],
             [
-                'id' => 1000,
-                'name' => 'anonymous',
-                'email' => '',
-                'password' => '',
+                'id'         => 1000,
+                'name'       => 'anonymous',
+                'email'      => '',
+                'password'   => '',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-                'enabled' => false,
-            ]
+                'enabled'    => false,
+            ],
         ];
         DB::table('users')->insert($users);
 
         $admin = User::findOrFail(1);
         $admin->update([
-            'access_token' => $admin->createToken('dropzone')->accessToken
+            'access_token' => $admin->createToken('dropzone')->accessToken,
         ]);
         anonymous()->update([
-            'access_token' => anonymous()->createToken('dropzone')->accessToken
+            'access_token' => anonymous()->createToken('dropzone')->accessToken,
         ]);
     }
 }
