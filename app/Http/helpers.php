@@ -2,7 +2,7 @@
 
 use App\User;
 
-if (! function_exists('anonymous')) {
+if (!function_exists('anonymous')) {
     /**
      * Return anonymous user.
      *

@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +16,6 @@ Route::group(['middleware' => 'auth:api', 'prefix' => 'v1', 'as' => 'api.'], fun
     Route::apiResource('media', 'Api\V1\MediaController', [
         'only' => [
             'store',
-        ]
+        ],
     ]);
 });
